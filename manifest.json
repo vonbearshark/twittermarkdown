@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Twitter Markdown",
+  "version": "0.0.1",
+  "description": "Adding markdown to Twitter.",
+  "permissions": [
+    "activeTab",
+    "*://twitter.com/*"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "page_action": {
+    "default_icon" : "icon16.png",
+    "default_title" : "Twitter Markdown"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://twitter.com/*"],
+      "js": ["marked.min.js", "twittermarkdown.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
